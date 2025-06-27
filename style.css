@@ -1,0 +1,229 @@
+@font-face{
+    font-family: morrisRoman;
+    src:url(morris_roman/MorrisRomanBlack.ttf);
+}
+
+:root{
+    --background-color: #D9A25F;
+    --main: #D9C3A8;
+    --bars: #734D2C;
+    --barShade: #4A311C;
+    --fontColor: #0B0D00;
+    --green: #A3A64E;
+    --greenShadow: #7D803C;
+    --orange: #F29727;
+
+    --barPaddingWidth: 20px;
+    --barPaddingTop: 30px;
+    --barPaddingBottom: 20px;
+
+    --navHeight: 30px;
+
+    --mainMarginTop: 30px;
+    --mainMarginBottom: 30px;
+    --mainMarginLeft: 30px;
+    --mainMarginRight: 30px;
+    --mainPaddingHeight: 30px;
+    --mainPaddingWidth: 20px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: morrisRoman, sans-serif;
+    font-size: 1.2rem;
+}
+
+body{
+    background-color: var(--background-color);
+}
+
+nav{
+    background-color: var(--bars);
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+
+nav > ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+nav > ul > li{
+    list-style-type: none;
+    height: var(--navHeight);
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    padding: var(--barPaddingTop) var(--barPaddingWidth) var(--barPaddingBottom);
+}
+
+nav > ul > li:hover{
+    color: var(--green);
+    background-color: var(--barShade);
+}
+
+nav > ul > li.selected{
+    color: var(--green);
+}
+
+header{
+    margin-top: calc(var(--barPaddingTop) + var(--barPaddingBottom) + var(--navHeight));
+    padding: 20px 0;
+}
+
+h1{
+    font: var(--fontColor);
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+.column_row > .switch{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin: 0 20px;
+}
+
+.column_row > .switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.column_row > .switch > .slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right : 0;
+    bottom: 0;
+    border-radius: 34px;
+    background-color: var(--green);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.column_row > .switch > .slider:before{
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.column_row > .switch > input:checked + .slider{
+    background-color: var(--green);
+}
+
+.column_row > .switch > input:checked + .slider:before{
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+header > .buttons{
+    margin-top: 10px;
+    padding: 0 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+header > .buttons > button{
+    margin: 0 60px;
+    padding: 10px;
+    height: 40px;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    background-color: var(--green);
+    width: 75px;
+}
+
+header > .buttons > button:focus{
+    border: 1px solid var(--greenShadow);
+}
+
+header > .buttons > button:hover{
+    background-color: var(--greenShadow);
+}
+
+header > .buttons > .column_row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main{
+    background-color: #D9C3A8;
+    height: 100%;
+    margin: var(--mainMarginTop) var(--mainMarginRight) var(--mainMarginBottom) var(--mainMarginLeft);
+    padding: var(--mainPaddingHeight) var(--mainPaddingWidth);
+    border-radius: 10px;
+}
+
+main.row{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    gap: 40px 70px;
+}
+
+main.row > .card{
+    height: 210px;
+    width: 140px;
+    position: relative;
+    border: solid 3px var(--main);
+}
+
+main.row > .card:hover > span{
+    display: inline-block;
+}
+
+main.row > .card:hover{
+    border: solid 3px var(--orange);
+}
+
+main.row > .card > span{
+    position: absolute;
+    background-color: var(--orange);
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    padding: 8px;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -150%);
+    display: none;
+}
+
+main.row > .card > span > p{
+    font-size: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+}
+
+main.row > .card > span > .author{
+    font-size: 0.8rem;
+}
+
+footer{
+    background-color: var(--bars);
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
