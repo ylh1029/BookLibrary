@@ -19,7 +19,7 @@
     <header>
         <h1>Welcome to the Library of Love ♡</h1>
         <div class="buttons">
-            <button>Add</button>
+            <button class="add">Add</button>
             <div class="column_row">
                 <span class="column">Column</span>
                 <label class="switch">
@@ -32,11 +32,44 @@
     </header>
 
     <main class="row">
-
+        <dialog closedby="closerequest">
+            <span class="close"><ion-icon name="close-outline"></ion-icon></span>
+            <form method="dialog">
+                <label for="title">
+                    <span>Title</span> <input id="title" type="text" required><span class="required">required</span>
+                </label>
+                <label for="author">
+                    <span>Author</span> <input type="text" id="author" required><span class="required">required</span>
+                </label>
+                <label for="genre">
+                    <span>Genre</span>
+                    <select name="genre" id="genre" required>
+                        <optgroup label="Genre">
+                            <option value="sci-fi">Sci-fi</option>
+                            <option value="Novel">Novel</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="Romance">Romance</option>
+                            <option value="non-fiction">Non-Fiction</option>
+                        </optgroup>
+                    </select>
+                    <span class="required">required</span>
+                </label>
+                <label for="description">
+                    <span>Description</span> <textarea name="descripiton" id="description"></textarea>
+                </label>
+                <label for="url">
+                    <span>Cover Photo</span> <input type="url" id="url">
+                </label>
+                <button type="submit" class="submit">Add</button>
+            </form>
+        </dialog>
     </main>
     
     <footer>Library of Love @inc 2025</footer>
 
     <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

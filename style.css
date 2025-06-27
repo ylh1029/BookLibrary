@@ -68,6 +68,7 @@ nav > ul > li{
 nav > ul > li:hover{
     color: var(--green);
     background-color: var(--barShade);
+    cursor: pointer;
 }
 
 nav > ul > li.selected{
@@ -159,6 +160,7 @@ header > .buttons > button:focus{
 
 header > .buttons > button:hover{
     background-color: var(--greenShadow);
+    cursor: pointer;
 }
 
 header > .buttons > .column_row{
@@ -173,6 +175,7 @@ main{
     margin: var(--mainMarginTop) var(--mainMarginRight) var(--mainMarginBottom) var(--mainMarginLeft);
     padding: var(--mainPaddingHeight) var(--mainPaddingWidth);
     border-radius: 10px;
+    position: relative;
 }
 
 main.row{
@@ -180,6 +183,49 @@ main.row{
     grid-template-columns: repeat(4, auto);
     justify-content: center;
     gap: 40px 70px;
+}
+
+main.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+main.column > .card{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    margin: 30px 100px;
+    border-radius: 8px;
+    width: 70%;
+    height: 300px;
+}
+
+main.column > .card > span{
+    width: 650px;
+    padding: 20px;
+}
+
+main.column > .card > span > p{
+    line-height: 1.5rem;
+}
+
+main.column > .card > span > .description{
+    display: block;
+    color: #333;
+    font-size: 0.9rem;
+
+}
+
+main.column > .card > span > .title{
+    font-size: 1.3rem;
+    margin: 5px;
+}
+
+main.column > .card > span > .author{
+    font-size: 1rem;
 }
 
 main.row > .card{
@@ -219,6 +265,104 @@ main.row > .card > span > p{
 
 main.row > .card > span > .author{
     font-size: 0.8rem;
+}
+
+main.row > .card > span > .description{
+    display: none;
+}
+
+dialog{
+    height: 489px;
+    width: 550px;
+    border-radius: 8px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.6);
+}
+
+dialog::backdrop{
+     backdrop-filter: blur(0.3rem);
+}
+
+form{
+    padding-top: 40px;
+    background-color: var(--green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+dialog > span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    background-color: var(--greenShadow);
+    color: white;
+}
+
+dialog > span:hover{
+    color: var(--green);
+    cursor: pointer;
+}
+
+form > label{
+    display: flex;
+    margin: 10px 0;
+    flex-direction: row;
+    align-items:center;
+    width: 500px;
+}
+
+form > label > span{
+    display: inline-block;
+    width: 150px;
+}
+
+form > label > input{
+    font-size: 0.9rem;
+    padding: 10px 10px;
+    width: 300px;
+}
+
+form > label > textarea{
+    width: 300px;
+    height: 150px;
+    resize: none;
+    font-size: 0.9rem;
+    padding: 10px 10px;
+}
+
+form > button{
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: var(--greenShadow);
+    color: white;
+}
+
+form > button:hover{
+    color: var(--green);
+}
+
+.required{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 80px;
+    margin-left: 10px;
+    padding: 5px 0;
+    font-size: 1rem;
+    color: white;
+    background-color: black;
 }
 
 footer{
