@@ -289,24 +289,6 @@ main.row .icon-container{
     display: none;
 }
 
-.display_read{
-    color: white;
-    background-color: #0b0d0a;
-    padding: 5px;
-    border-radius: 5px;
-    position: absolute;
-    top: 100%; 
-    font-size: 0.8rem;
-    transform: translate(0, 10px);
-    /* opacity: 0; */
-    transition: 0.5s ease;
-}
-
-.read:hover .display_read{
-    opacity: 0.9;
-    transition: 0.5s ease;
-}
-
 main.row > .card:hover .icon-container{
     display: block;
 }

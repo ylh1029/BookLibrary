@@ -100,7 +100,6 @@ function displayBook(book){
     const icon_container = document.createElement("div");
     const remove = document.createElement("ion-icon");
     const read = document.createElement("ion-icon");
-    const span = document.createElement("span");
 
     card.classList.add("card");
     title.classList.add("title");
@@ -110,7 +109,6 @@ function displayBook(book){
     remove.classList.add("remove");
     icon_container.classList.add("icon-container");
     read.classList.add("read");
-    span.classList.add("display_read");
 
     card.style.background = `url(${book.cover})`;
     card.style.backgroundSize = "cover";
@@ -118,7 +116,6 @@ function displayBook(book){
     title.textContent = book.title;
     author.textContent = `By ${book.author}`;
     description.textContent = `${book.description}`;
-    span.textContent = "not read";
     remove.setAttribute("name", "trash-outline");
     read.setAttribute("name", "book-outline");
 
@@ -132,7 +129,6 @@ function displayBook(book){
     icon_container.append(read);
     icon_container.append(remove);
     card.append(icon_container);
-    card.append(span);
     container.append(card);
 }
 
@@ -223,18 +219,11 @@ function assignEventRead(item){
         if(item.classList.value === "read md hydrated selected"){
             item.classList.remove("selected");
             item.setAttribute("name", "book-outline");
-
-            span.forEach(item => {
-                item.textContent = "not read";
-            });
         }
 
         else{
             item.classList.add("selected");
             item.setAttribute("name", "book");
-            span.forEach(item => {
-                item.textContent = "read";
-            });
         }
     });
 }
