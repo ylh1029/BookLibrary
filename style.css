@@ -175,7 +175,7 @@ main{
     margin: var(--mainMarginTop) var(--mainMarginRight) var(--mainMarginBottom) var(--mainMarginLeft);
     padding: var(--mainPaddingHeight) var(--mainPaddingWidth);
     border-radius: 10px;
-    position: relative;
+    min-height: 49vh;
 }
 
 main.row{
@@ -193,6 +193,10 @@ main.column{
     background-color: transparent;
 }
 
+main > .card{
+    position: relative;
+}
+
 main.column > .card{
     display: flex;
     flex-direction: row-reverse;
@@ -203,35 +207,34 @@ main.column > .card{
     height: 300px;
 }
 
-main.column > .card > span{
+main.column > .card > .display{
     width: 650px;
     padding: 20px;
 }
 
-main.column > .card > span > p{
+main.column > .card > .display > p{
     line-height: 1.5rem;
 }
 
-main.column > .card > span > .description{
+main.column > .card > .display > .description{
     display: block;
     color: #333;
     font-size: 0.9rem;
 
 }
 
-main.column > .card > span > .title{
+main.column > .card > .display > .title{
     font-size: 1.3rem;
     margin: 5px;
 }
 
-main.column > .card > span > .author{
+main.column > .card > .display > .author{
     font-size: 1rem;
 }
 
 main.row > .card{
     height: 210px;
     width: 140px;
-    position: relative;
     border: solid 3px var(--main);
 }
 
@@ -243,7 +246,7 @@ main.row > .card:hover{
     border: solid 3px var(--orange);
 }
 
-main.row > .card > span{
+main.row > .card > .display{
     position: absolute;
     background-color: var(--orange);
     width: 100%;
@@ -256,19 +259,83 @@ main.row > .card > span{
     display: none;
 }
 
-main.row > .card > span > p{
+main.row > .card > .display > p{
     font-size: 1rem;
     text-align: center;
     vertical-align: middle;
     color: white;
 }
 
-main.row > .card > span > .author{
+main.row > .card > .display > .author{
     font-size: 0.8rem;
 }
 
-main.row > .card > span > .description{
+main.row > .card > .display > .description{
     display: none;
+}
+
+main.column .icon-container{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+main.row .icon-container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: none;
+}
+
+.display_read{
+    color: white;
+    background-color: #0b0d0a;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%; 
+    font-size: 0.8rem;
+    transform: translate(0, 10px);
+    /* opacity: 0; */
+    transition: 0.5s ease;
+}
+
+.read:hover .display_read{
+    opacity: 0.9;
+    transition: 0.5s ease;
+}
+
+main.row > .card:hover .icon-container{
+    display: block;
+}
+
+main > .card > .icon-container > .read.selected{
+    color: var(--orange);
+}
+
+main.column > .card > .icon-container > ion-icon:hover{
+    color: var(--orange)
+}
+
+main.row > .card > .icon-container > ion-icon:hover{
+    color: var(--orange)
+}
+
+.icon-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.icon-container > ion-icon{
+    padding: 0 5px;
+}
+
+.icon-container:hover{
+    cursor: pointer;
 }
 
 dialog{
